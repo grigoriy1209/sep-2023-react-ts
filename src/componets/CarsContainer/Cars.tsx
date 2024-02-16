@@ -1,18 +1,20 @@
-import {useEffect, useState} from "react";
 import {ICar} from "../../interfases/carInterface";
-import {carService} from "../../services/carService";
+import {FC} from "react";
+import {Car} from "./Car";
+import {ISetState} from "../../types/setStateType";
 
-const Cars = () => {
-    const [cars, setCars] = useState<ICar[]>([])
-
-    useEffect(() => {
-        carService.getAll().then(({data})=>setCars(data))
-    }, []);
+interface IProps {
+    cars:ICar[]
+    setCarForUpdate:ISetState<ICar>,
+    changeTrigger:() =>void
+}
+const Cars:FC<IProps> = ({cars,setCarForUpdate,changeTrigger}) => {
     return (
         <div>
-
+            {
+                cars.map(car=><Car key={car.id} car={car} setCarForUpdate={setCarForUpdate} changeTrigger={changeTrigger}/>)
+            }
         </div>
     );
 };
-
 export {Cars};
