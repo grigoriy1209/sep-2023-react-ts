@@ -14,7 +14,6 @@ const Car: FC<IProps> = ({car, setCarForUpdate,changeTrigger}) => {
      const deleteById =async ()=>{
          await carService.deleteById(id)
          changeTrigger()
-
      }
     return (
         <div>

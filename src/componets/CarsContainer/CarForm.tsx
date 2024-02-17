@@ -13,7 +13,7 @@ interface IProps{
     carForUpdate:ICar
 }
 
-const CarForm:FC<IProps> = ({changeTrigger,carForUpdate,setCarForUpdate}) => {
+const CarForm:FC<IProps> = ({changeTrigger,carForUpdate,  setCarForUpdate}) => {
 const {reset,register,handleSubmit,
     setValue}=   useForm<ICar>()
 
